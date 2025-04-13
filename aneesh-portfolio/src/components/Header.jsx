@@ -33,7 +33,7 @@ function Header() {
           {/* Mobile Dropdown */}
           {menuOpen && (
             <div className="sm:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur-md rounded-b-xl border-t border-white/20 shadow-md z-10">
-              <div className="flex flex-col items-center py-4 gap-4 ">
+              <div className="flex flex-col items-center py-4 gap-6 ">
                 <a href="/" className="hover:text-purple-300 transition" >Home</a>
                 <a href="/" className="hover:text-purple-300 transition">About</a>
                 <a href="/" className="hover:text-purple-300 transition">Contact</a>
