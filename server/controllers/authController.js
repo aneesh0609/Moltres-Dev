@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs' ;
 import jwt from 'jsonwebtoken' ;
-import userModel from '../server/models/authModel.js';
+import userModel from '../models/authModel.js';
 
 export const register = async (req,res) => 
 {
@@ -13,21 +13,21 @@ export const register = async (req,res) =>
 
       try {
         
-          const existingUser = userModel.findOne({email}) ;
+          const existingUser = await userModel.findOne({email}) ;   
 
           if(existingUser)
           {
-            return res.json({success: true , message: "user already registered"})
+            return res.json({success: false , message: "user Already registered " });
           }
 
 
           const hashedPassword = await bcrypt.hash(password,10);
 
-          const user =  new userModel({name,email,password : hashedPassword});
+          const user =  new userModel({name,email,password: hashedPassword});
 
           await user.save();
 
-          const token = jwt.sign({id: user._id},process.env.JWT_SECRET,{expiredIn : '7d'}) ;
+          const token = jwt.sign({id: user._id},process.env.JWT_SECRET,{expiresIn : '7d'}) ;
 
           res.cookie('token', token, {
             httpOnly: true ,
@@ -39,7 +39,7 @@ export const register = async (req,res) =>
          return res.status(200).json({success: true , message: "user registered successfuly"})
 
       } catch (error) {
-        return res.json({success : true , message : " Internal server error"})
+        return res.json({success : false , message : " Internal server error"})
       }
 }
 

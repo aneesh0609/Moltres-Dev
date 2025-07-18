@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import cors from 'cors';
 import 'dotenv/config'
 import connectDB from './config/database.js';
+import Route from './routes/authRoutes.js';
 
 const app = express();
 const Port = process.env.PORT || 8000
@@ -18,5 +19,8 @@ app.use(cors({credentials: true}));
 app.get('/', (req,res) => {
   res.send("hii from server")
 })
+
+app.use('/api/auth', Route);
+
 
 app.listen(Port, () => console.log(`server started on ${Port}`));
