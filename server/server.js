@@ -16,4 +16,4 @@ app.get('/', (req,res) => {
   res.send("hii from server")
 })
 
-app.listen(Port, () => console.log("server started"));
+app.listen(Port, () => console.log(`server started on ${Port}`));
