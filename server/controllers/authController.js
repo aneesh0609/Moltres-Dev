@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs' ;
 import jwt from 'jsonwebtoken' ;
 import userModel from '../models/authModel.js';
+import transporter from '../config/nodemailer.js';
 
 export const register = async (req,res) => 
 {
@@ -36,11 +37,25 @@ export const register = async (req,res) =>
             maxAge: 7 * 24 * 60 * 60 * 1000 
           })
 
+
+          // SMTP MAILING FEATURE .. SENDING EMAIL TO THE USER
+
+         const mailOption = {
+          from: process.env.SENDER_EMAIL,
+          to: email,
+          subject: 'WELCOME TO CODEMEW ',
+          text: `Welcome to CodeMew . Your account has been created with email id : ${email} ` 
+         }
+
+            await transporter.sendMail(mailOption);
+
          return res.status(200).json({success: true , message: "user registered successfuly"})
 
       } catch (error) {
-        return res.json({success : false , message : " Internal server error"})
-      }
+  console.error("Register Error:", error.message || error);
+  return res.status(500).json({ success: false, message: "Internal server error" });
+}
+
 }
 
 
