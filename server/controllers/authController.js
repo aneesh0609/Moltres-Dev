@@ -121,3 +121,44 @@ export const logout = async (req,res) =>
       return res.json({success: false , message: "internal server error"})
     }
 }
+
+
+export const sendOtp = async (req,res) => {
+
+  
+  
+    try {
+         const{userId} = req.body;
+      
+       const user = await userModel.findById(userId);
+
+       if(!user)
+       {
+          return res.json({success: false , message: "user is not Authorized"})
+       }
+
+       const otp = String(Math.floor( 100000 + Math.random() * 9000000));
+        
+       user.verifyOtp = otp ;
+       user.verifyOtpExpireAt = Date.new() + 24 * 60 * 60 * 1000 ;
+   
+       await user.save();
+
+
+       const mailOption = {
+        from: process.env.SENDER_EMAIL,
+        to: user.email,
+        subject: "Email Verification",
+        text: `Your OTP verification code is: ${otp}`
+       }
+   
+       await transporter.sendMail(mailOption);
+
+       return res,json({success: true , message: "Verification Otp has been sent to your email"});
+
+    } catch (error) {
+      return res.json({success: false , message: "INTERNAL SERVER ERROR"  })
+    }
+
+
+}
