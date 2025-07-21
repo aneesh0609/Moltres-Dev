@@ -123,45 +123,47 @@ export const logout = async (req,res) =>
 }
 
 
-export const sendOtp = async (req,res) => {
+export const sendOtp = async (req, res) => {
+  try {
+    const { userId } = req.body;
 
-  
-  
-    try {
-         const{userId} = req.body;
-      
-       const user = await userModel.findById(userId);
+    const user = await userModel.findById(userId);
 
-       if(!user)
-       {
-          return res.json({success: false , message: "user is not Authorized"})
-       }
-
-       const otp = String(Math.floor( 100000 + Math.random() * 9000000));
-        
-       user.verifyOtp = otp ;
-       user.verifyOtpExpireAt = Date.new() + 24 * 60 * 60 * 1000 ;
-   
-       await user.save();
-
-
-       const mailOption = {
-        from: process.env.SENDER_EMAIL,
-        to: user.email,
-        subject: "Email Verification",
-        text: `Your OTP verification code is: ${otp}`
-       }
-   
-       await transporter.sendMail(mailOption);
-
-       return res,json({success: true , message: "Verification Otp has been sent to your email"});
-
-    } catch (error) {
-      return res.json({success: false , message: "INTERNAL SERVER ERROR"  })
+    if (!user) {
+      return res.json({ success: false, message: "User is not authorized" });
     }
 
+    const otp = String(Math.floor(100000 + Math.random() * 900000)); // 6-digit OTP
 
-}
+    user.verifyOtp = otp;
+    user.verifyOtpExpireAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // expires in 24 hours
+
+    await user.save();
+
+    const mailOption = {
+      from: process.env.SENDER_EMAIL,
+      to: user.email,
+      subject: "Email Verification - CodeMew",
+      text: `Hi ${user.name},\n\nYour OTP verification code is: ${otp}\nIt will expire in 24 hours.\n\nThank you,\nTeam CodeMew`
+    };
+
+    console.log({
+  emailTo: user.email,
+  otp,
+  otpExpire: user.verifyOtpExpireAt,
+});
+
+
+    await transporter.sendMail(mailOption);
+
+    return res.status(200).json({ success: true, message: "Verification OTP has been sent to your email." });
+
+  } catch (error) {
+    console.error("OTP Send Error:", error.message);
+    return res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};
+
 
 
   export const verifyEmail = async (req,res) => {
@@ -183,10 +185,10 @@ export const sendOtp = async (req,res) => {
         return res.json({success: false , message: "user not authorized"})
       }
 
-      if(user.verifyOtp === '' || user.verifyOtp === !otp)
-      {
-        return res.json({success: false , message: "Invalid Otp"})
-      }
+    if (!user.verifyOtp || user.verifyOtp !== otp) {
+  return res.json({ success: false, message: "Invalid Otp" });
+}
+
     
       if(user.verifyOtpExpireAt < Date.now())
         {
