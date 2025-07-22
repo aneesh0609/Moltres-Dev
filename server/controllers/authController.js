@@ -147,6 +147,8 @@ export const sendOtp = async (req, res) => {
       text: `Hi ${user.name},\n\nYour OTP verification code is: ${otp}\nIt will expire in 24 hours.\n\nThank you,\nTeam CodeMew`
     };
 
+    // remove this before production
+
     console.log({
   emailTo: user.email,
   otp,
@@ -211,3 +213,64 @@ export const sendOtp = async (req, res) => {
          return res.json({success: false , message: "Internal Server Error"});
       }
   }
+
+  export const userIsAuthenticated = (req,res) => 
+    {
+         try {
+            res.json({success: true , message: "user is Authenticated"}) ;
+         } catch (error) {
+          return res.json({success: false , message: "internal server error"})
+         }
+    } 
+
+
+
+
+
+  export const resetOtp = async (req,res) => 
+  {
+      const{email} = req.body 
+      if(!email)
+      {
+        return res.json({success: false , message: "email is required"});
+      }
+      
+      try {
+         
+        const user = await userModel.findOne({email}) ;
+
+        if(!user)
+        {
+          return res.json({success: false , message: "user not authorized"})
+        }
+
+        const otp =  String(Math.floor(100000 + Math.random() * 900000   )) ;
+
+        user.resetOtp = otp ;
+        user.resetOtpExpiredAt = Date.now() + 15 * 60 * 1000 ;
+
+        await user.save();
+
+       const mailOption = {
+      from: process.env.SENDER_EMAIL,
+      to: user.email,
+      subject: "Email Verification - CodeMew",
+      text: `Hi ${user.name},\n\nYour OTP verification code is: ${otp}\nIt will expire in 24 hours.\n\nThank you,\nTeam CodeMew`
+    };
+ 
+    console.log({resend0tp : user.resetOtp });
+
+    await transporter.sendMail(mailOption);
+
+    return res.status(200).json({ success: true, message: "Verification OTP has been sent to your email." });
+         
+      } catch (error) {
+        return res.json({success: false , message: "Internal server problem with pass change otp"})
+      }
+     
+  }
+
+
+  
+
+  
