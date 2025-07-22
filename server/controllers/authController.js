@@ -271,6 +271,46 @@ export const sendOtp = async (req, res) => {
   }
 
 
-  
+  export const passChange = async (req,res) =>
+  {
+      const{email,otp,newpassword}= req.body 
+
+     if(!email , !otp , !newpassword)
+     {
+        return res.json({success: false , message: "Missing Fields"})
+     }
+
+     try {
+         
+      const user = await userModel.findOne({email})
+      
+      if(!user)
+      {
+        return res.json({success: false , message: "user not authorized"})
+      }
+
+      if(user.resetOtp === "" || user.resetOtp !== otp)
+      {
+        return res.json({success: false , message: "invalid otp"})
+      }
+
+      const hashedPassword = await bcrypt.hash(newpassword,10);
+
+      user.password = hashedPassword ;
+
+      user.resetOtp = ""
+      user.resetOtpExpiredAt = 0 ;
+                                                                                                       
+      await user.save();
+
+      res.json({success: true , message: "password has been change"})
+
+     } catch (error) {
+
+       return res.json({success: false , message: "Internal server error"})
+     }
+
+  }
+
 
   
