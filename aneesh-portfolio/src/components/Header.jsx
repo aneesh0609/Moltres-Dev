@@ -13,7 +13,7 @@ function Header() {
         <header className="flex justify-between items-center rounded-4xl mb-6 bg-black/40 backdrop-blur-md border border-white/20 shadow-sm p-4 relative ">
           
           {/* Logo (always left) */}
-          <a href="/" className="font-bold text-lg">Logo</a>
+          <a href="/" className="font-bold text-lg"  >logo</a>
           
           {/* Desktop Navigation */}
           <nav className="hidden  sm:flex gap-6 ">
@@ -47,6 +47,8 @@ function Header() {
           
           {/* Text Section */}
           <div className="w-full lg:w-1/2 p-4">
+            
+            <img  src='/public/robot1.png' className='w-32 h-24 ml-14 mb-6 '  />
             <h1 className="text-3xl sm:text-4xl font-bold text-center lg:text-left">
             Hey, I'm Aneesh Chauhan 
             </h1>
@@ -54,6 +56,7 @@ function Header() {
              I create impactful web experiences using React and Node.js.
             Let’s build something awesome together. ✨
             </p>
+            <button className='border rounded-3xl  pl-4 pr-4 pt-1 pb-1 mt-10  ml-12'>Get started</button>
           </div>
 
           {/* Image Section */}
