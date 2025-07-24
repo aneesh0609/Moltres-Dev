@@ -56,7 +56,8 @@ function Header() {
              I create impactful web experiences using React and Node.js.
             Let’s build something awesome together. ✨
             </p>
-            <button className='border rounded-3xl  pl-4 pr-4 pt-1 pb-1 mt-10  ml-12'>Get started</button>
+            <button className='border rounded-3xl  pl-4 pr-4 pt-1 pb-1 mt-10  ml-12 bg-gradient-to-br from-gray-400 via-black to-pink-900 text-white  hover:from-red-400 hover:to-blue-600
+  transition-colors duration-300 '>Get started</button>
           </div>
 
           {/* Image Section */}
