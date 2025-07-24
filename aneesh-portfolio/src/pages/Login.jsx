@@ -37,9 +37,9 @@ const Login = () => {
          </form>
 
          {state === 'Sign Up' ? (<p className='mt-4  text-white  text-center text-xs'>Already have an account? 
-          <span className='mt-4 ml-2  text-white cursor-pointer text-xs  hover:text-blue-400  ' >Login here</span>
+          <span onClick={() => setState('Login')} className='mt-4 ml-2  text-white cursor-pointer text-xs  hover:text-blue-400  ' >Login here</span>
          </p>) : (<p className='mt-4  text-white cursor-pointer text-center text-xs'>Don't have an account? 
-          <span className='mt-4 ml-2  text-white cursor-pointer text-xs  hover:text-blue-400  ' >Sign Up</span>
+          <span  onClick={() => setState('Sign Up')}  className='mt-4 ml-2  text-white cursor-pointer text-xs  hover:text-blue-400  ' >Sign Up</span>
          </p>
 )}
 
