@@ -1,8 +1,18 @@
 import React, { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+
 
 const Login = () => {
 
+  const navigate = useNavigate();
+
    const[state,setState] = useState('Sign Up');
+
+  const[name,setName] = useState('') ;
+  
+  const[email,setEmail] = useState('') ;
+
+  const[password,setPassword] = useState('') ;
 
   return (
     <div className='flex items-center justify-center min-h-screen px-6 sm:px-0 bg-gradient-to-br from-white to-gray-500'>
@@ -16,21 +26,30 @@ const Login = () => {
 
           {state === 'Sign Up' && (<div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]'>
             <img src=''></img>
-            <input type='text' placeholder='Full Name' required  className='bg-transparent outline-none' />
+            <input type='text' 
+               value={name}
+              onChange={e => setName(e.target.value)}
+            placeholder='Full Name' required  className='bg-transparent outline-none' />
           </div>)}
           
 
           <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C] '>
             <img src=''></img>
-            <input type='email' placeholder='Email Id' required className='bg-transparent outline-none' />
+            <input type='email' 
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            placeholder='Email Id' required className='bg-transparent outline-none' />
           </div>
 
            <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C] '>
             <img src=''></img>
-            <input type='password' placeholder='Password' required className='bg-transparent outline-none' />
+            <input type='password' 
+               value={password}
+              onChange={e => setPassword(e.target.value)}
+            placeholder='Password' required className='bg-transparent outline-none' />
           </div>
 
-          <p className='mb-4  text-indigo-500 cursor-pointer'>Forgot Password</p> 
+          <p  onClick={() => navigate('/reset-password')}    className='mb-4  text-indigo-500 cursor-pointer'>Forgot Password</p> 
 
           <button     className='w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 text-white font-semibold cursor-pointer ' >{state}</button>
 
