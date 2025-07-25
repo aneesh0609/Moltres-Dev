@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {useNavigate} from 'react-router-dom'
-
+import { AppContext } from '../context/AppContext';
+import axios from 'axios'
 
 const Login = () => {
 
   const navigate = useNavigate();
+
+  const {backendUrl, setIsLoggedIn} = useContext(AppContext) ;
 
    const[state,setState] = useState('Sign Up');
 
@@ -14,6 +17,28 @@ const Login = () => {
 
   const[password,setPassword] = useState('') ;
 
+  const onSubmitHandler = async (e) => 
+  {
+     
+    try {
+       e.preventDefault();
+
+       if (state === 'Sign Up') {
+        
+      const {data} =   await axios.post(backendUrl + '/api/auth/register' , {name,email,password}) ;
+
+       } else {
+        
+       }
+
+
+    } catch (error) {
+      
+    }
+
+  }
+
+
   return (
     <div className='flex items-center justify-center min-h-screen px-6 sm:px-0 bg-gradient-to-br from-white to-gray-500'>
       
@@ -22,7 +47,7 @@ const Login = () => {
          <h2 className='text-3xl font-semibold text-white text-center mb-3'>{state === 'Sign Up' ? "Create Account" : "Login"}</h2>
          <p className=' text-sm text-center mb-6'>{state === 'Sign Up' ? "Create your account " : "Login to your account" }</p>
 
-         <form>
+         <form onSubmit={onSubmitHandler} >
 
           {state === 'Sign Up' && (<div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]'>
             <img src=''></img>
