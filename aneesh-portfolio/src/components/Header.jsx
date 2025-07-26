@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Menu, X } from 'lucide-react' // You can swap these with other icons if you prefer
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white px-4 sm:px-8 md:px-12 py-4">
@@ -19,10 +21,11 @@ function Header() {
           <nav className="hidden  sm:flex gap-6 ">
             <a href="/" className="hover:text-purple-300 transition mr-20 ">Home</a>
             <a href="/" className="hover:text-purple-300 transition mr-20 ">About</a>
-            <a href="/" className="hover:text-purple-300 transition mr-20 ">Contact</a>
+            <a onClick={() => navigate('/login')} className="hover:border-amber-100 transition mr-20 border rounded-full px-4 py-1 bg-gradient-to-l from-black to-red-800 text-white cursor-pointer">login</a>
           </nav>
 
           {/* Mobile Menu Icon (right) */}
+          
           <button
             className="sm:hidden text-white"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -36,7 +39,9 @@ function Header() {
               <div className="flex flex-col items-center py-4 gap-6 ">
                 <a href="/" className="hover:text-purple-300 transition" >Home</a>
                 <a href="/" className="hover:text-purple-300 transition">About</a>
-                <a href="/" className="hover:text-purple-300 transition">Contact</a>
+                <a onClick={() => navigate('/login')} className="hover:text-blue-300  transition mr-20 border rounded-full px-4 py-1 bg-gradient-to-r from-gray-800 to-yellow-800 text-white cursor-pointer 
+                ml-20
+                ">login</a>
               </div>
             </div>
           )}

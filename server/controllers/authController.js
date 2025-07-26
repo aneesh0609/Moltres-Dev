@@ -5,6 +5,8 @@ import transporter from '../config/nodemailer.js';
 
 export const register = async (req,res) => 
 {
+   
+
       const{name,email,password} = req.body ;
 
       if(!name || !email || !password)

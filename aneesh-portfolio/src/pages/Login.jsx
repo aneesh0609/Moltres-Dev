@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import { AppContext } from '../context/AppContext';
 import axios from 'axios'
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -21,19 +22,41 @@ const Login = () => {
   {
      
     try {
+
        e.preventDefault();
+
+       axios.defaults.withCredentials = true;
 
        if (state === 'Sign Up') {
         
       const {data} =   await axios.post(backendUrl + '/api/auth/register' , {name,email,password}) ;
+      
+        if(data.success)
+          {
+            setIsLoggedIn(true);
+            toast.success('Registered successfully!');
+            setTimeout(() => navigate('/'), 500);
+          } else{
+             toast.error(data.message);
+          }
 
        } else {
-        
+        const {data} =   await axios.post(backendUrl + '/api/auth/login' , {email,password}) ;
+      
+        if(data.success)
+          {
+            setIsLoggedIn(true);
+           toast.success('Logged in successfully!');
+           setTimeout(() => navigate('/'), 500);
+          } else{
+             toast.error('login problem');
+          }
        }
 
 
     } catch (error) {
-      
+      const msg = error.response?.data?.message || error.message || 'An error occurred';
+       toast.error(msg);
     }
 
   }
@@ -50,8 +73,8 @@ const Login = () => {
          <form onSubmit={onSubmitHandler} >
 
           {state === 'Sign Up' && (<div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]'>
-            <img src=''></img>
-            <input type='text' 
+           
+            <input type='name' 
                value={name}
               onChange={e => setName(e.target.value)}
             placeholder='Full Name' required  className='bg-transparent outline-none' />
@@ -59,7 +82,7 @@ const Login = () => {
           
 
           <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C] '>
-            <img src=''></img>
+           
             <input type='email' 
               value={email}
               onChange={e => setEmail(e.target.value)}
@@ -67,7 +90,7 @@ const Login = () => {
           </div>
 
            <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C] '>
-            <img src=''></img>
+           
             <input type='password' 
                value={password}
               onChange={e => setPassword(e.target.value)}

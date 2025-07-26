@@ -7,7 +7,7 @@ import userAuth from '../middleware/userAuth.js';
 
 const Route = express.Router();
 
-Route.get('/register', register) ;
+Route.post('/register', register) ;
 Route.post('/login' , login);
 Route.post('/logout', logout);
 Route.post('/sent-otp',userAuth,sendOtp);
