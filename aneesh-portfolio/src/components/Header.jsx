@@ -15,7 +15,7 @@ function Header() {
         <header className="flex justify-between items-center rounded-4xl mb-6 bg-black/40 backdrop-blur-md border border-white/20 shadow-sm p-4 relative ">
           
           {/* Logo (always left) */}
-          <a href="/" className="font-bold text-lg"  >logo</a>
+          <a href="/" className="font-bold text-lg"  >AC</a>
           
           {/* Desktop Navigation */}
           <nav className="hidden  sm:flex gap-6 ">
