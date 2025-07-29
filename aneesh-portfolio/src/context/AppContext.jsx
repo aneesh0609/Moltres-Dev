@@ -13,11 +13,9 @@ export const AppContextProvider = (props) =>
  const[isLoggedIn , setIsLoggedIn] = useState(false)
  const[userData , setUserData] = useState(false)
  
- 
- const getUserData = () => 
- {
+const getelemnet = {
   
- }
+}
 
 
 
