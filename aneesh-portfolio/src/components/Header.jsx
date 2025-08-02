@@ -9,7 +9,7 @@ function Header() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white px-4 sm:px-8 md:px-12 py-4">
       {/* Glassmorphic container */}
-      <div className="bg-black/30 backdrop-blur-md rounded-xl shadow-lg border border-white/20 p-4 sm:p-8 md:p-12">
+      <div className= "bg-black/30 backdrop-blur-md rounded-xl shadow-lg border border-white/20 p-4 sm:p-8 md:p-12">
         
         {/* Header Section */}
         <header className="flex justify-between items-center rounded-4xl mb-6 bg-black/40 backdrop-blur-md border border-white/20 shadow-sm p-4 relative ">
@@ -53,7 +53,7 @@ function Header() {
           {/* Text Section */}
           <div className="w-full lg:w-1/2 p-4">
             
-            <img  src='/public/robot1.png' className='w-32 h-24 ml-14 mb-6 '  />
+            <img  src='/public/robot1.png' className='w-32 h-24 ml-14 mb-6 cursor-pointer  note '  />
             <h1 className="text-3xl sm:text-4xl font-bold text-center lg:text-left">
             Hey, I'm Aneesh Chauhan 
             </h1>
@@ -67,7 +67,7 @@ function Header() {
 
           {/* Image Section */}
           <div className="w-full lg:w-1/2 p-4">
-            <img src="/house1.png" alt="House" className="w-full h-auto rounded-4xl" />
+            <img src="/house1.png" alt="House" className="w-full h-auto rounded-4xl slide-in-right" />
           </div>
         </main>
       </div>
