@@ -2,6 +2,8 @@ import React from 'react'
 import Header from '../components/Header'
 import SkillsTimeline from '../components/Timeline'
 import PortfolioProjects from '../components/Projects'
+import TataCertificate from '../components/Certificates'
+
 
 function Home() {
   return (
@@ -10,6 +12,7 @@ function Home() {
      <Header />
     <SkillsTimeline />
     <PortfolioProjects />
+    <TataCertificate />
    
    
     </>

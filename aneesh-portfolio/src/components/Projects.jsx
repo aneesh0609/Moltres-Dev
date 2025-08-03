@@ -49,7 +49,7 @@ const ProjectCard = ({ project, index }) => {
       className="group bg-black/80 backdrop-blur-xl rounded-3xl p-6 border border-white/10 
                  transition-all duration-300 hover:-translate-y-3 hover:scale-105 
                  hover:shadow-2xl hover:border-white/30 hover:bg-black/90 
-                 h-[500px] flex flex-col relative overflow-hidden"
+                 flex flex-col relative overflow-hidden h-full"
       style={{ animationDelay: `${0.4 + index * 0.2}s` }}
     >
       {/* Shimmer Effect */}
@@ -59,28 +59,28 @@ const ProjectCard = ({ project, index }) => {
                       transition-transform duration-1000 pointer-events-none" />
       
       {/* Header */}
-      <div className="flex items-center mb-6">
-        <div className={`w-12 h-12 bg-gradient-to-br ${project.iconBg} rounded-xl 
-                        flex items-center justify-center mr-4 text-2xl 
+      <div className="flex items-center mb-4 sm:mb-6">
+        <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${project.iconBg} rounded-xl 
+                        flex items-center justify-center mr-4 text-xl sm:text-2xl 
                         transition-transform duration-300 group-hover:rotate-[360deg] group-hover:scale-110`}>
           {project.icon}
         </div>
-        <h2 className="text-2xl font-bold text-white uppercase tracking-wide">
+        <h2 className="text-lg sm:text-2xl font-bold text-white uppercase tracking-wide">
           {project.title}
         </h2>
       </div>
 
       {/* Description */}
-      <p className="text-gray-300 mb-6 text-sm leading-relaxed flex-grow">
+      <p className="text-gray-300 mb-4 sm:mb-6 text-sm leading-relaxed flex-grow">
         {project.description}
       </p>
 
       {/* Technologies */}
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
         {project.technologies.map((tech) => (
           <span
             key={tech}
-            className="bg-white/10 text-white px-3 py-2 rounded-2xl text-xs 
+            className="bg-white/10 text-white px-2 py-1 sm:px-3 sm:py-2 rounded-2xl text-xs 
                        border border-white/20 transition-all duration-300 
                        hover:bg-white/20 hover:scale-105"
           >
@@ -90,9 +90,9 @@ const ProjectCard = ({ project, index }) => {
       </div>
 
       {/* Features */}
-      <ul className="mb-6 space-y-2">
+      <ul className="mb-4 sm:mb-6 space-y-2">
         {project.features.map((feature) => (
-          <li key={feature} className="text-gray-400 text-sm pl-5 relative leading-snug">
+          <li key={feature} className="text-gray-400 text-xs sm:text-sm pl-5 relative leading-snug">
             <span className="absolute left-0 text-yellow-400 font-bold">✦</span>
             {feature}
           </li>
@@ -105,7 +105,7 @@ const ProjectCard = ({ project, index }) => {
         target="_blank"
         rel="noopener noreferrer"
         className="group/link inline-flex items-center bg-gradient-to-r from-gray-700 to-gray-600 
-                   text-white px-6 py-3 rounded-full font-bold text-sm 
+                   text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full font-bold text-sm 
                    transition-all duration-300 hover:-translate-y-1 hover:shadow-lg 
                    mt-auto relative overflow-hidden"
       >
@@ -161,7 +161,6 @@ const BackgroundElements = () => {
 const PortfolioProjects = () => {
   const [particles, setParticles] = useState([]);
 
-  // Particle system
   useEffect(() => {
     const createParticle = () => {
       const newParticle = {
@@ -169,65 +168,52 @@ const PortfolioProjects = () => {
         left: Math.random() * 100,
         duration: 4 + Math.random() * 2
       };
-      
       setParticles(prev => [...prev, newParticle]);
-      
       setTimeout(() => {
         setParticles(prev => prev.filter(p => p.id !== newParticle.id));
       }, newParticle.duration * 1000);
     };
-
     const interval = setInterval(createParticle, 300);
     return () => clearInterval(interval);
   }, []);
 
-  // Parallax scroll effect
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
       const parallaxElements = document.querySelectorAll('.animate-bounce');
-      
       parallaxElements.forEach(element => {
         const yPos = -(scrolled * 0.3);
         element.style.transform = `translateY(${yPos}px)`;
       });
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-black to-gray-900 overflow-x-hidden relative">
-      {/* Background Elements */}
       <BackgroundElements />
-
-      {/* Floating Particles */}
       {particles.map(particle => (
         <FloatingParticle key={particle.id} particle={particle} />
       ))}
 
-      <div className="max-w-6xl mx-auto px-8 py-8 relative z-10">
-        {/* Header */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 relative z-10">
         <header className="text-center mb-16 opacity-0 animate-[fadeInUp_1s_ease-out_0.2s_forwards]">
-
-
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                      <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                       transition={{ duration: 1 }}
-                      >
-                            My Projects
-                       </motion.h1> 
+          <h1 className="text-4xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              My Projects
+            </motion.h1> 
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Innovative solutions crafted with passion and cutting-edge technologies. 
             Each project represents a journey of learning, problem-solving, and technical excellence.
           </p>
         </header>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {projectsData.map((project, index) => (
             <div key={project.id} className="opacity-0 animate-[slideInUp_0.8s_ease-out_forwards]">
@@ -236,9 +222,8 @@ const PortfolioProjects = () => {
           ))}
         </div>
 
-        {/* Skills Section */}
-        <div className="bg-black/80 backdrop-blur-xl rounded-3xl p-8 border border-white/10 opacity-0 animate-[fadeInUp_1s_ease-out_1s_forwards]">
-          <h2 className="text-4xl font-bold text-white text-center mb-8">
+        <div className="bg-black/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-white/10 opacity-0 animate-[fadeInUp_1s_ease-out_1s_forwards]">
+          <h2 className="text-2xl sm:text-4xl font-bold text-white text-center mb-8">
             Technical Expertise
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -249,18 +234,15 @@ const PortfolioProjects = () => {
         </div>
       </div>
 
-      {/* CSS Animations */}
       <style jsx>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        
         @keyframes slideInUp {  
           from { opacity: 0; transform: translateY(50px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        
         @keyframes particleFloat {
           0% { transform: translateY(0) rotate(0deg); opacity: 1; }
           100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
