@@ -7,10 +7,11 @@ import {
   Calendar,
   Star,
 } from 'lucide-react';
+import Card from './Circle';
 
 const categories = [
   {
-    label: 'Frontend Languages',
+    label: 'Frontend ',
     skills: [
       { name: 'JavaScript', icon: <Code2 className="text-white" />, color: 'from-yellow-400 to-orange-500', level: 90 },
       { name: 'HTML5', icon: <Code2 className="text-white" />, color: 'from-orange-400 to-red-500', level: 95 },
@@ -18,11 +19,11 @@ const categories = [
     ],
   },
   {
-    label: 'Backend Languages',
+    label: 'Backend ',
     skills: [
       { name: 'Node.js', icon: <Server className="text-white" />, color: 'from-green-400 to-emerald-500', level: 85 },
-      { name: 'Python', icon: <Database className="text-white" />, color: 'from-blue-600 to-indigo-600', level: 80 },
-      { name: 'Java', icon: <Database className="text-white" />, color: 'from-red-500 to-pink-500', level: 75 },
+      { name: 'Express.js', icon: <Database className="text-white" />, color: 'from-blue-600 to-indigo-600', level: 80 },
+      { name: 'RESTful APIs', icon: <Database className="text-white" />, color: 'from-red-500 to-pink-500', level: 75 },
     ],
   },
   {
@@ -37,7 +38,7 @@ const categories = [
     label: 'Full‑Stack Tech',
     skills: [
       { name: 'React.js', icon: <Zap className="text-white" />, color: 'from-blue-400 to-cyan-400', level: 88 },
-      { name: 'Express.js', icon: <Server className="text-white" />, color: 'from-gray-600 to-gray-800', level: 85 },
+      { name: 'Express.js', icon: <Server className="text-white" />, color: 'from-blue-600 to-gray-800', level: 85 },
       { name: 'RESTful APIs', icon: <Code2 className="text-white" />, color: 'from-blue-500 to-indigo-500', level: 88 },
     ],
   },
@@ -49,6 +50,8 @@ function SkillBadge({ skill, isVisible, delay }) {
     if (isVisible) {
       const t = setTimeout(() => setProgress(skill.level), delay);
       return () => clearTimeout(t);
+    } else {
+      setProgress(0);
     }
   }, [isVisible, skill.level, delay]);
 
@@ -75,35 +78,29 @@ function SkillBadge({ skill, isVisible, delay }) {
 
 export default function Timeline() {
   const refs = useRef([]);
-  const [visible, setVisible] = useState(new Set());
+  const [visibleIndexes, setVisibleIndexes] = useState({});
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((ent) => {
-          const i = Number(ent.target.dataset.idx);
-          if (ent.isIntersecting) {
-            observer.unobserve(ent.target);
-            setTimeout(() => {
-              setVisible((prev) => {
-                const s = new Set(prev);
-                s.add(i);
-                return s;
-              });
-            }, i * 150);
-          }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const idx = Number(entry.target.dataset.idx);
+          setVisibleIndexes((prev) => ({
+            ...prev,
+            [idx]: entry.isIntersecting,
+          }));
         });
       },
-      { threshold: 0.2, rootMargin: '0px 0px -80px 0px' }
+      { threshold: 0.2 }
     );
-    refs.current.forEach((el) => el && obs.observe(el));
-    return () => obs.disconnect();
+
+    refs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 py-16 px-4 md:px-8">
+    <div className="min-h-screen overflow-x-hidden bg-gradient-to-tr from-black via-black to-gray-900 py-12 px-4 md:px-8">
       <div className="max-w-6xl mx-auto space-y-16">
-        {/* Header */}
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mb-2">
             Skills — Anish’s Expertise
@@ -113,23 +110,21 @@ export default function Timeline() {
           </p>
         </div>
 
-        {/* Cards: 2 per row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Responsive Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
           {categories.map((cat, i) => {
-            const isVis = visible.has(i);
-            const slideFrom = i % 2 === 0 ? '-translate-x-12' : 'translate-x-12';
+            const isVisible = visibleIndexes[i];
+            const slideClass = i % 2 === 0 ? 'translate-x-[-40px]' : 'translate-x-[40px]';
+
             return (
               <div
                 key={i}
                 ref={(el) => (refs.current[i] = el)}
                 data-idx={i}
-                className={`
-                  bg-gray-800/50 backdrop-blur-md rounded-xl p-4 md:p-5 border border-gray-700
-                  hover:border-gray-600 hover:scale-105 transition-transform duration-1000
-                  transform opacity-0 ${slideFrom}
-                  ${isVis ? 'opacity-100 translate-x-0' : ''}
+                className={`w-full max-w-md bg-gray-800/50 backdrop-blur-md rounded-xl p-4 border border-gray-700
+                  hover:border-gray-600 hover:scale-105 transform transition-all duration-700
+                  ${isVisible ? 'opacity-100 translate-x-0' : `opacity-0 ${slideClass}`}
                 `}
-                style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <div className="flex items-center space-x-3 mb-3">
                   <Star className="w-5 h-5 text-yellow-400" />
@@ -137,7 +132,12 @@ export default function Timeline() {
                 </div>
                 <div className="space-y-2">
                   {cat.skills.map((sk, j) => (
-                    <SkillBadge skill={sk} isVisible={isVis} delay={i * 150 + j * 100} key={j} />
+                    <SkillBadge
+                      skill={sk}
+                      isVisible={isVisible}
+                      delay={j * 100}
+                      key={j}
+                    />
                   ))}
                 </div>
               </div>
@@ -145,17 +145,18 @@ export default function Timeline() {
           })}
         </div>
 
-        {/* Footer Stats */}
+        <Card />
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
           {[
-            { val: '10+', lbl: 'Technologies', icon: <Code2 className="w-6 h-6 text-blue-400" /> },
+            { val: '10+', lbl: 'Technologies', icon: <Code2 className="w-6 h-6 text-blue-400  " /> },
             { val: '4+', lbl: 'Skill&nbsp;Categories', icon: <Star className="w-6 h-6 text-blue-400" /> },
             { val: '85%', lbl: 'Avg Proficiency', icon: <Zap className="w-6 h-6 text-blue-400" /> },
-            { val: '‑', lbl: 'Other Metrics', icon: <Calendar className="w-6 h-6 text-blue-400" /> },
+            { val: '2', lbl: 'Main Project', icon: <Calendar className="w-6 h-6 text-blue-400" /> },
           ].map((s, ii) => (
             <div
               key={ii}
-              className="text-center bg-gray-800/30 backdrop-blur-sm rounded-xl p-5 border border-gray-700 hover:border-gray-600 hover:scale-105 transition duration-300"
+              className="text-center bg-gradient-to-br from-pink-900 via-black to-gray-700 backdrop-blur-sm rounded-xl p-5 border border-pink-400  hover:border-pink-600 hover:scale-105 transition duration-300  "
             >
               {s.icon}
               <div className="text-2xl md:text-3xl font-bold text-white mt-2" dangerouslySetInnerHTML={{ __html: s.val }} />

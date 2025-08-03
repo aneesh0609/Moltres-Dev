@@ -9,7 +9,7 @@ function Header() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white px-4 sm:px-8 md:px-12 py-4">
       {/* Glassmorphic container */}
-      <div className= "bg-black/30 backdrop-blur-md rounded-xl shadow-lg border border-white/20 p-4 sm:p-8 md:p-12">
+      <div className= "">
         
         {/* Header Section */}
         <header className="flex justify-between items-center rounded-4xl mb-6 bg-black/40 backdrop-blur-md border border-white/20 shadow-sm p-4 relative ">
