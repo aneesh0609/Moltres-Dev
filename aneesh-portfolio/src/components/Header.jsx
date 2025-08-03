@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Menu, X } from 'lucide-react' // You can swap these with other icons if you prefer
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -21,7 +22,7 @@ function Header() {
           <nav className="hidden  sm:flex gap-6 ">
             <a href="/" className="hover:text-purple-300 transition mr-20 ">Home</a>
             <a href="/" className="hover:text-purple-300 transition mr-20 ">About</a>
-            <a onClick={() => navigate('/login')} className="hover:border-amber-100 transition mr-20 border rounded-full px-4 py-1 bg-gradient-to-l from-black to-red-800 text-white cursor-pointer">login</a>
+            <a onClick={() => navigate('/login')} className="hover:text-yellow-300  transition mr-20  rounded-full px-4 py-1  bg-gradient-to-r from-gray-300 via-gray-800 to-gray-300 text-white cursor-pointer ">login</a>
           </nav>
 
           {/* Mobile Menu Icon (right) */}
@@ -54,9 +55,19 @@ function Header() {
           <div className="w-full lg:w-1/2 p-4">
             
             <img  src='/public/robot1.png' className='w-32 h-24 ml-14 mb-6 cursor-pointer  note '  />
+
+         
+
             <h1 className="text-3xl sm:text-4xl font-bold text-center lg:text-left">
-            Hey, I'm Aneesh Chauhan 
+           <motion.h1
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+           >
+                    Hey, I'm Aneesh Chauhan 
+           </motion.h1>
             </h1>
+
             <p className="mt-4 text-xl sm:text-xl font-light text-center lg:text-left">
              I create impactful web experiences using React and Node.js.
             Let’s build something awesome together. ✨
