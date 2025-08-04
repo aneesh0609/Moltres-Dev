@@ -34,7 +34,7 @@ const TataCertificate = () => {
       const newParticle = {
         id: Date.now() + Math.random(),
         left: Math.random() * 100,
-        size: Math.random() * 3 + 2,
+        size: Math.random() * 3 + 3,
         duration: Math.random() * 2 + 3
       };
       setParticles((prev) => [...prev.slice(-8), newParticle]);
