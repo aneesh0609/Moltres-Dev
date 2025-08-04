@@ -13,6 +13,8 @@ function Home() {
     <SkillsTimeline />
     <PortfolioProjects />
     <TataCertificate />
+ 
+    
    
    
     </>

@@ -6,6 +6,7 @@ import 'dotenv/config';
 import connectDB from './config/database.js';
 import Route from './routes/authRoutes.js';
 import userRoute from './routes/userRoute.js';
+import messageRouter from './routes/messageRoute.js';
 
 
 
@@ -29,6 +30,7 @@ app.get('/', (req,res) => {
 app.use('/api/auth', Route);
 
 app.use('/api/user', userRoute);
+app.use('/api/me' , messageRouter);
 
 
 app.listen(Port, () => console.log(`server started on ${Port}`));
