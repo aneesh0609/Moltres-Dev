@@ -82,7 +82,7 @@ const TataCertificate = () => {
         <div className="flex justify-center">
           <div className="w-full max-w-5xl">
             <div
-              className={`group relative bg-black/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-12 border border-white/10 transition-all duration-700 hover:-translate-y-2 hover:scale-[1.02] hover:border-white/30 hover:shadow-2xl hover:shadow-pink-500/20 ${
+              className={`group relative bg-gradient-to-br from-gray-900 via-black to-red-900 backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-12 border border-white/10 transition-all duration-700 hover:-translate-y-2 hover:scale-[1.02] hover:border-white/30 hover:shadow-2xl hover:shadow-pink-500/20 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               } overflow-hidden min-h-[500px] flex flex-col`}
             >
@@ -147,14 +147,14 @@ const TataCertificate = () => {
                             {achievement}
                           </li>
                         ))}
-                      </ul>
+                      </ul> <br></br>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute bottom-4 right-4 flex items-center space-x-2 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <div className="absolute bottom-4 right-4 flex items-center space-x-2 bg-black/50 backdrop-blur-sm px-3 py-1  rounded-full border border-white/10 ">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse " />
                 <span className="text-xs text-green-400 font-medium">Verified</span>
               </div>
             </div>
