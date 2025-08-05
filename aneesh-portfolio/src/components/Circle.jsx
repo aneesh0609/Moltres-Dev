@@ -13,7 +13,7 @@ const CircleMenu = () => {
           .animate-float {
             animation: float 2s ease-in-out infinite;
           }
-          .delay-200 { animation-delay: 0.2s; }
+          .delay-200 { animation-delay: 0.3s; }
           .delay-400 { animation-delay: 0.4s; }
           .delay-600 { animation-delay: 0.6s; }
           .delay-800 { animation-delay: 0.8s; }

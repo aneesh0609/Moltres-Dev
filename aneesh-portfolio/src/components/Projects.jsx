@@ -206,7 +206,7 @@ const PortfolioProjects = () => {
           {projectsData.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
-        </div>
+        </div> 
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
