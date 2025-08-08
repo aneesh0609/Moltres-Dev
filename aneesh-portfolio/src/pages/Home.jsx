@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import SkillsTimeline from '../components/Timeline'
 import PortfolioProjects from '../components/Projects'
 import TataCertificate from '../components/Certificates'
+import GetInTouch from '../components/Info'
 
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
     <SkillsTimeline />
     <PortfolioProjects />
     <TataCertificate />
+    <GetInTouch />
  
     
    
