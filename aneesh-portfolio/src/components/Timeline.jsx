@@ -102,11 +102,12 @@ export default function Timeline() {
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-tr from-black via-black to-gray-900 py-12 px-4 md:px-8">
       <div className="max-w-6xl mx-auto space-y-16">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mb-2">
-            Skills — Anish’s Expertise
+          <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400 mb-2">
+           Skills — Areas of Expertise
+
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            These are the core technologies and tools Anish has mastered.
+            These are the core technologies and tools mastered.
           </p>
         </div>
 

@@ -34,9 +34,9 @@ const GetInTouch = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black text-white">
       {/* Header */}
-      <div className="bg-gray-800 py-8">
+      <div className="bg-gradient-to-r from-gray-900 to-black py-8">
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold text-center mb-2">Get in Touch</h1>
           <p className="text-gray-300 text-center text-sm md:text-base">
@@ -57,7 +57,7 @@ const GetInTouch = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-center space-x-3 p-3 bg-gray-800 rounded-lg">
+              <div className="flex items-center space-x-3 p-3 bg-gradient-to-r from-indigo-900 to-pink-900 rounded-lg">
                 <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">Email</p>
@@ -65,15 +65,15 @@ const GetInTouch = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 p-3 bg-gray-800 rounded-lg">
+              <div className="flex items-center space-x-3 p-3 bg-gradient-to-r from-indigo-900 to-pink-900  rounded-lg">
                 <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <div>
+                <div className=''>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">Phone</p>
                   <p className="text-sm">+91 – 7290875555</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 p-3 bg-gray-800 rounded-lg">
+              <div className="flex items-center space-x-3 p-3 bg-gradient-to-r from-indigo-900 to-pink-900  rounded-lg">
                 <MapPin className="w-5 h-5 text-red-400 flex-shrink-0" />
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">Location</p>
@@ -83,19 +83,11 @@ const GetInTouch = () => {
             </div>
 
             {/* Skills highlight */}
-            <div className="mt-8 p-4 bg-gray-800 rounded-lg">
-              <h3 className="text-lg font-semibold mb-3">What I Do</h3>
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <span className="bg-blue-600 px-2 py-1 rounded">React.js</span>
-                <span className="bg-green-600 px-2 py-1 rounded">Node.js</span>
-                <span className="bg-yellow-600 px-2 py-1 rounded">JavaScript</span>
-                <span className="bg-purple-600 px-2 py-1 rounded">C++</span>
-              </div>
-            </div>
+  
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gray-800 p-6 rounded-lg">
+          <div className="bg-gradient-to-r from-gray-900 via-black to-indigo-900 p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center">
               <MessageSquare className="w-5 h-5 mr-2 text-blue-400" />
               Send Me a Message
@@ -136,19 +128,7 @@ const GetInTouch = () => {
                 </div>
               </div>
 
-              <div>
-                <div className="block text-sm font-medium mb-1">
-                  Subject
-                </div>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 text-sm bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="What's this about?"
-                />
-              </div>
+           
 
               <div>
                 <div className="block text-sm font-medium mb-1">
@@ -178,7 +158,7 @@ const GetInTouch = () => {
         {/* Footer */}
         <div className="mt-12 pt-8 border-t border-gray-700 text-center">
           <p className="text-gray-400 text-sm">
-            © 2024 Aneesh Chauhan. Looking forward to connecting with you!
+            © 2025 Aneesh Chauhan. Looking forward to connecting with you!
           </p>
         </div>
       </div>

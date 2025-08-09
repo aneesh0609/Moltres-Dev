@@ -25,7 +25,7 @@ const CircleMenu = () => {
 
       {/* Center User Icon */}
       <div className="absolute w-32 h-32 rounded-full bg-white flex items-center justify-center left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]">
-        <User className="w-16 h-16 text-black p-6" />
+        <User className="w-16 h-16 text-black p-2" />
       </div>
 
       {/* Floating Image Buttons */}

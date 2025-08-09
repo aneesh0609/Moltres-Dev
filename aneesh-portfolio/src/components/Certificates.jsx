@@ -161,22 +161,7 @@ const TataCertificate = () => {
           </div>
         </div>
 
-        <div className="text-center mt-8 md:mt-12">
-          <div className="inline-block bg-black/60 backdrop-blur-xl rounded-2xl p-4 sm:p-6 md:p-8 border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">
-              Ready to Secure Your Business?
-            </h3>
-            <p className="text-gray-300 mb-3 sm:mb-4 md:mb-6 text-sm sm:text-base">
-              Let's implement robust cybersecurity solutions for your organization.
-            </p>
-            <button
-              onClick={handleContactClick}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 sm:px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold text-sm sm:text-base hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
-            >
-              Get In Touch
-            </button>
-          </div>
-        </div>
+       
       </div>
 
       <style jsx>{`
