@@ -6,6 +6,8 @@ import {
   Zap,
   Calendar,
   Star,
+  Atom,
+  Link,
 } from 'lucide-react';
 import Card from './Circle';
 
@@ -22,24 +24,24 @@ const categories = [
     label: 'Backend ',
     skills: [
       { name: 'Node.js', icon: <Server className="text-white" />, color: 'from-green-400 to-emerald-500', level: 85 },
-      { name: 'Express.js', icon: <Database className="text-white" />, color: 'from-blue-600 to-indigo-600', level: 80 },
-      { name: 'RESTful APIs', icon: <Database className="text-white" />, color: 'from-red-500 to-pink-500', level: 75 },
+      { name: 'Express.js', icon: <Server className="text-white" />, color: 'from-blue-600 to-indigo-600', level: 85 },
+      { name: 'RESTful APIs', icon: <Link className="text-white" />, color: 'from-red-500 to-pink-500', level: 75 },
     ],
   },
   {
     label: 'Other Tools',
     skills: [
-      { name: 'MongoDB', icon: <Database className="text-white" />, color: 'from-green-500 to-teal-500', level: 82 },
+      { name: 'Redux', icon: <Atom className="text-white" />, color: 'from-violet-500 to-red-500', level: 82 },
       { name: 'Git / GitHub', icon: <Code2 className="text-white" />, color: 'from-orange-500 to-red-500', level: 90 },
       { name: 'JWT Auth', icon: <Server className="text-white" />, color: 'from-purple-500 to-pink-500', level: 80 },
     ],
   },
   {
-    label: 'Full‑Stack Tech',
+    label: 'Mern‑Stack Tech',
     skills: [
       { name: 'React.js', icon: <Zap className="text-white" />, color: 'from-blue-400 to-cyan-400', level: 88 },
       { name: 'Express.js', icon: <Server className="text-white" />, color: 'from-blue-600 to-gray-800', level: 85 },
-      { name: 'RESTful APIs', icon: <Code2 className="text-white" />, color: 'from-blue-500 to-indigo-500', level: 88 },
+      { name: 'MongoDB', icon: <Database className="text-white" />, color: 'from-green-800 to-green-500', level: 88 },
     ],
   },
 ];
