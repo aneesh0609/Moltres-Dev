@@ -12,53 +12,17 @@ function Header() {
       {/* Glassmorphic container */}
       <div className= "">
         
-        {/* Header Section */}
-        <header className="flex justify-between items-center rounded-4xl mb-6 bg-black/40 backdrop-blur-md border border-white/20 shadow-sm p-4 relative ">
-          
-          {/* Logo (always left) */}
-          <a href="/" className="font-bold text-lg"  >AC</a>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden  sm:flex gap-6 ">
-            <a href="/" className="hover:text-purple-300 transition mr-20 ">Home</a>
-            <a href="/" className="hover:text-purple-300 transition mr-20 ">About</a>
-            <a onClick={() => navigate('/login')} className="hover:text-yellow-300  transition mr-20  rounded-full px-4 py-1  bg-gradient-to-r from-gray-300 via-gray-800 to-gray-300 text-white cursor-pointer ">login</a>
-          </nav>
-
-          {/* Mobile Menu Icon (right) */}
-          
-          <button
-            className="sm:hidden text-white"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-          {/* Mobile Dropdown */}
-          {menuOpen && (
-            <div className="sm:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur-md rounded-b-xl border-t border-white/20 shadow-md z-10">
-              <div className="flex flex-col items-center py-4 gap-6 ">
-                <a href="/" className="hover:text-purple-300 transition" >Home</a>
-                <a href="/" className="hover:text-purple-300 transition">About</a>
-                <a onClick={() => navigate('/login')} className="hover:text-blue-300  transition mr-20 border rounded-full px-4 py-1 bg-gradient-to-r from-gray-800 to-yellow-800 text-white cursor-pointer 
-                ml-20
-                ">login</a>
-              </div>
-            </div>
-          )}
-        </header>
-
         {/* Main Content */}
         <main className="flex flex-col lg:flex-row justify-center items-center gap-8 min-h-[calc(100vh-7rem)]">
           
           {/* Text Section */}
-          <div className="w-full lg:w-1/2 p-4">
+          <div className="w-full lg:w-1/2 ">
             
             <img  src='/public/robot1.png' className='w-32 h-24 ml-14 mb-6 cursor-pointer  note '  />
 
          
 
-            <h1 className="text-3xl sm:text-4xl font-bold text-center lg:text-left">
+            <h1 className="text-3xl sm:text-5xl font-bold text-center lg:text-left">
            <motion.h1
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -72,13 +36,24 @@ function Header() {
              I create impactful web experiences using React and Node.js.
             Let’s build something awesome together. ✨
             </p>
+
+            <button className='w-full sm:w-auto bg-blue-600 text-white px-8 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg sm:mt-6'>
+              view my work
+            </button>
             
           </div>
 
-          {/* Image Section */}
-          <div className="w-full lg:w-1/2 p-4">
-            <img src="/house1.png" alt="House" className="w-full h-auto rounded-4xl slide-in-right" />
-          </div>
+         {/* Image Section */}
+<div className="w-48 sm:ml-18 h-48 lg:w-96 lg:h-96  rounded-full overflow-hidden flex items-center justify-center  sm:mt-20   shadow-lg transform transition-all duration-700 ease-in-out border-2 border-red-500
+                      hover:scale-105 hover:border-pink-500 hover:shadow-pink-500/50 
+                      slide-in-right ">
+  <img 
+    src="house.jpg" 
+    alt="House" 
+    className="w-full h-full object-cover " 
+  />
+</div>
+
         </main>
       </div>
     </div>
