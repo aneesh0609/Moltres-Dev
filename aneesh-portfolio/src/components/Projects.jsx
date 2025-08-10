@@ -197,7 +197,7 @@ const PortfolioProjects = () => {
           Projects
        </motion.h1>
 
-          <p className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg  md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Explore a collection of projects built with a focus on performance, clean architecture, and responsive design.
           </p>
         </header>

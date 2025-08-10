@@ -106,7 +106,7 @@ export default function Timeline() {
            Skills — Areas of Expertise
 
           </h1>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-3xl mt-6 mx-auto">
             These are the core technologies and tools mastered.
           </p>
         </div>

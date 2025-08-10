@@ -74,7 +74,7 @@ const TataCertificate = () => {
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
             Professional Certification
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Showcasing expertise in cybersecurity and strategic technology implementation through industry-recognized certification.
           </p>
         </div>
