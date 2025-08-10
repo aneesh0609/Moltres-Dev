@@ -22,7 +22,7 @@ const projectsData = [
     title: "Code-Mew",
     icon: "💻",
     description: "A dynamic platform for tech enthusiasts to explore cutting-edge articles focused on latest technologies.",
-    technologies: ["React.js", "Node.js", "MongoDB", "Mongoose", "Firebase"],
+    technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Firebase"],
     features: [
       "RESTful APIs - 40% faster load times",
       "Firebase authentication with real-time profiles",

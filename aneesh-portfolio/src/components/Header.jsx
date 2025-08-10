@@ -3,8 +3,8 @@ import { Menu, X } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion';
 
-function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
+function Header({ scrollToProjects }) {
+ 
   const navigate = useNavigate();
 
   return (
@@ -33,15 +33,17 @@ function Header() {
               Let’s build something awesome together. ✨
             </p>
            <div className="w-full flex justify-center lg:justify-start">
-  <button 
-    className="px-4 py-1 text-sm sm:px-8 sm:py-2 sm:text-base 
-               bg-gradient-to-r from-indigo-900 via-indigo-300 to-violet-900 text-white rounded-full font-semibold border
-               hover:bg-blue-700 transition-all duration-300 transform 
-               hover:scale-105 hover:shadow-lg sm:mt-6 mt-8 shadow-indigo-500/20 "
-  >
-    view my work
-  </button>
-</div>
+      <button
+        onClick={scrollToProjects}
+        className="px-4 py-1 text-sm sm:px-8 sm:py-2 sm:text-base 
+                   bg-gradient-to-r from-indigo-900 via-indigo-300 to-violet-900 
+                   text-white rounded-full font-semibold border
+                   hover:bg-blue-700 transition-all duration-300 transform 
+                   hover:scale-105 hover:shadow-lg sm:mt-6 mt-8 shadow-indigo-500/20"
+      >
+        view my work
+      </button>
+    </div>
 
           </div>
 

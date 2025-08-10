@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Header from '../components/Header'
 import SkillsTimeline from '../components/Timeline'
 import PortfolioProjects from '../components/Projects'
@@ -7,12 +7,17 @@ import GetInTouch from '../components/Info'
 
 
 function Home() {
+
+  const projectsRef = useRef(null);
+
   return (
     <>
-    
-     <Header />
+     {/* Pass scroll function to Header */}
+      <Header scrollToProjects={() => projectsRef.current?.scrollIntoView({ behavior: 'smooth' })} />
     <SkillsTimeline />
-    <PortfolioProjects />
+    <div ref={projectsRef}>
+  <PortfolioProjects />
+   </div>
     <TataCertificate />
     <GetInTouch />
  
@@ -22,5 +27,6 @@ function Home() {
     </>
   )
 }
+
 
 export default Home

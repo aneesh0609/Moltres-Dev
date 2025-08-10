@@ -24,9 +24,14 @@ const CircleMenu = () => {
       <div className="w-full h-full rounded-full bg-[#0d0d12] absolute inset-0 z-0"></div>
 
       {/* Center User Icon */}
-      <div className="absolute w-32 h-32 rounded-full bg-white flex items-center justify-center left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]">
-        <User className="w-16 h-16 text-black p-4" />
-      </div>
+      <div className="absolute w-32 h-32 rounded-full bg-white flex items-center justify-center left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] overflow-hidden">
+  <img
+    src="/public/me.jpeg"
+    className="w-full h-full object-cover rounded-full"
+    alt="Coder"
+  />
+</div>
+
 
       {/* Floating Image Buttons */}
       <button className="absolute animate-float w-12 h-12 bg-white rounded-full overflow-hidden flex items-center justify-center left-1/2 top-[-28px] transform -translate-x-1/2 z-20 shadow-md">
