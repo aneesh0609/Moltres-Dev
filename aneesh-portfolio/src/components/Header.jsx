@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Menu, X } from 'lucide-react' // You can swap these with other icons if you prefer
+import { Menu, X } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion';
 
@@ -9,51 +9,51 @@ function Header() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white px-4 sm:px-8 md:px-12 py-4">
-      {/* Glassmorphic container */}
-      <div className= "">
-        
-        {/* Main Content */}
-        <main className="flex flex-col lg:flex-row justify-center items-center gap-8 min-h-[calc(100vh-7rem)]">
-          
+      <div className="">
+        <main 
+          className="flex flex-col-reverse lg:flex-row justify-center items-center gap-8 min-h-[calc(100vh-7rem)]"
+        >
           {/* Text Section */}
-          <div className="w-full lg:w-1/2 ">
-            
-            <img  src='/public/robot1.png' className='w-32 h-24 ml-14 mb-6 cursor-pointer  note '  />
-
-         
-
+          <div className="w-full lg:w-1/2">
+            <img 
+              src='/public/robot1.png' 
+              className='w-32 h-24 ml-14 mb-6 cursor-pointer note'  
+            />
             <h1 className="text-3xl sm:text-5xl font-bold text-center lg:text-left">
-           <motion.h1
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-           >
-                    Hey, I'm Aneesh Chauhan 
-           </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                Hey, I'm Aneesh Chauhan 
+              </motion.h1>
             </h1>
-
-            <p className="mt-4 text-xl sm:text-xl font-light text-center lg:text-left">
-             I create impactful web experiences using React and Node.js.
-            Let’s build something awesome together. ✨
+            <p className="mt-4 text-sm py-4 sm:text-lg font-light text-center lg:text-left">
+              I create impactful web experiences using React and Node.js.
+              Let’s build something awesome together. ✨
             </p>
-
-            <button className='w-full sm:w-auto bg-blue-600 text-white px-8 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg sm:mt-6'>
-              view my work
-            </button>
-            
-          </div>
-
-         {/* Image Section */}
-<div className="w-48 sm:ml-18 h-48 lg:w-96 lg:h-96  rounded-full overflow-hidden flex items-center justify-center  sm:mt-20   shadow-lg transform transition-all duration-700 ease-in-out border-2 border-red-500
-                      hover:scale-105 hover:border-pink-500 hover:shadow-pink-500/50 
-                      slide-in-right ">
-  <img 
-    src="house.jpg" 
-    alt="House" 
-    className="w-full h-full object-cover " 
-  />
+           <div className="w-full flex justify-center lg:justify-start">
+  <button 
+    className="px-4 py-1 text-sm sm:px-8 sm:py-2 sm:text-base 
+               bg-blue-600 text-white rounded-full 
+               hover:bg-blue-700 transition-all duration-300 transform 
+               hover:scale-105 hover:shadow-lg sm:mt-6 mt-8"
+  >
+    view my work
+  </button>
 </div>
 
+          </div>
+
+          {/* Image Section */}
+          <div className="w-48 h-48 lg:w-96 lg:h-96 rounded-full overflow-hidden flex items-center justify-center shadow-lg transform transition-all duration-700 ease-in-out border-2 border-gray-900 shadow-indigo-700/80 
+                          hover:scale-105 hover:border-pink-500 hover:shadow-pink-500/50 slide-in-right">
+            <img 
+              src="/public/coder.jpg" 
+              alt="House" 
+              className="w-full h-full object-cover" 
+            />
+          </div>
         </main>
       </div>
     </div>
