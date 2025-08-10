@@ -20,13 +20,13 @@ function Header() {
               className='w-32 h-24 ml-14 mb-6 cursor-pointer note'  
             />
             <h1 className="text-4xl sm:text-5xl font-bold text-center lg:text-left ">
-              <motion.h1
+              <motion.h2
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
               >
                 Hey, I'm Aneesh Chauhan 
-              </motion.h1>
+              </motion.h2>
             </h1>
             <p className="mt-4 text-lg py-4 sm:text-xl font-light text-center lg:text-left">
               I create impactful web experiences using React and Node.js.

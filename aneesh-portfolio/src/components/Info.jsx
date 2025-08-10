@@ -1,37 +1,49 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, User, MessageSquare } from 'lucide-react';
+import React, { useContext, useState } from 'react';
+import { Mail, Phone, MapPin, Send, User, MessageSquare, Linkedin } from 'lucide-react';
+import { toast } from 'react-toastify';
+import { AppContext } from '../context/AppContext';
+import axios from 'axios';
 
 const GetInTouch = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
 
-  const handleSubmit = () => {
-    // Handle form submission here
-    if (formData.name && formData.email && formData.subject && formData.message) {
-      console.log('Message sent:', formData);
-      alert('Message sent successfully!');
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-    } else {
-      alert('Please fill in all fields');
+ const {backendUrl} = useContext(AppContext) ;
+
+
+  const[name,setName] = useState('') ;
+  
+  const[email,setEmail] = useState('') ;
+
+  const[text,setText] = useState('') ;
+
+
+
+  const onSubmitHandler = async (e) => {
+     
+    try {
+
+       e.preventDefault();
+
+       axios.defaults.withCredentials = true;
+        
+      const {data} =   await axios.post(backendUrl + '/api/me/message' , {name,email,text}) ;
+      
+        if(data.success)
+          {
+            toast.success('Message sent successfully!');
+            setName("");
+            setEmail("");
+            setText("");
+          } else{
+             toast.error(data.message);
+          }
+
+    } catch (error) {
+      const msg = error.response?.data?.message || error.message || 'An error occurred';
+       toast.error(msg);
     }
-  };
+
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black text-white">
@@ -66,10 +78,18 @@ const GetInTouch = () => {
               </div>
 
               <div className="flex items-center space-x-3 p-3 bg-gradient-to-r from-indigo-900 to-pink-900  rounded-lg">
-                <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <Linkedin className="w-5 h-5 text-green-400 flex-shrink-0" />
                 <div className=''>
-                  <p className="text-xs text-gray-400 uppercase tracking-wide">Phone</p>
-                  <p className="text-sm">+91 – 7290875555</p>
+                  <p className="text-xs text-gray-400 uppercase tracking-wide">Linkedin</p>
+                  <a 
+                    href="https://www.linkedin.com/in/aneesh-chauhan06" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-sm text-blue-500 hover:underline"
+                  >
+                    www.linkedin.com/in/aneesh-chauhan06
+                  </a>
+
                 </div>
               </div>
 
@@ -87,7 +107,9 @@ const GetInTouch = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gradient-to-r from-gray-900 via-black to-indigo-900 p-6 rounded-lg">
+          <form onSubmit={onSubmitHandler} >
+
+ <div className="bg-gradient-to-r from-gray-900 via-black to-indigo-900 p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center">
               <MessageSquare className="w-5 h-5 mr-2 text-blue-400" />
               Send Me a Message
@@ -103,8 +125,9 @@ const GetInTouch = () => {
                   <input
                     type="text"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+                     value={name}
+                     onChange={e => setName(e.target.value)}
+                     required
                     className="w-full pl-10 pr-3 py-2 text-sm bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Your name"
                   />
@@ -120,8 +143,9 @@ const GetInTouch = () => {
                   <input
                     type="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
+                     value={email}
+              onChange={e => setEmail(e.target.value)}
+                required
                     className="w-full pl-10 pr-3 py-2 text-sm bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="your@email.com"
                   />
@@ -137,15 +161,15 @@ const GetInTouch = () => {
                 <textarea
                   name="message"
                   rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
+                  value={text}
+              onChange={e => setText(e.target.value)}
+                required
                   className="w-full px-3 py-2 text-sm bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                  placeholder="Tell me about your project or opportunity..."
+                  placeholder=""
                 ></textarea>
               </div>
 
               <button
-                onClick={handleSubmit}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-200 flex items-center justify-center text-sm"
               >
                 <Send className="w-4 h-4 mr-2" />
@@ -153,6 +177,10 @@ const GetInTouch = () => {
               </button>
             </div>
           </div>
+
+
+          </form>
+         
         </div>
 
         {/* Footer */}
