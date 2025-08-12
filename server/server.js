@@ -16,7 +16,7 @@ const Port = process.env.PORT || 8000
 
 connectDB();
 
-const allowedOrigins = process.env.FRONTEND_PORT 
+const allowedOrigins = [process.env.FRONTEND_PORT];
 
 app.use(express.json()) ;
 app.use(cookieParser());
@@ -24,7 +24,10 @@ app.use(cors({origin: allowedOrigins  ,credentials: true}));
 
 
 app.get('/', (req,res) => {
-  res.send("hii from server")
+  res.send({
+    activeStatus : true,
+    error: false
+  })
 })
 
 app.use('/api/auth', Route);
