@@ -16,7 +16,7 @@ function Header({ scrollToProjects }) {
           {/* Text Section */}
           <div className="w-full lg:w-1/2">
             <img 
-              src='/public/robot1.png' 
+              src='/robot1.png' 
               className='w-32 h-24 ml-14 mb-6 cursor-pointer note'  
             />
             <h1 className="text-4xl sm:text-5xl font-bold text-center lg:text-left ">
@@ -51,7 +51,7 @@ function Header({ scrollToProjects }) {
           <div className="w-48 h-48 lg:w-96 lg:h-96 rounded-full overflow-hidden flex items-center justify-center shadow-lg transform transition-all duration-700 ease-in-out border-2 border-gray-900 shadow-indigo-700/80 
                           hover:scale-105 hover:border-pink-500 hover:shadow-pink-500/50 slide-in-right">
             <img 
-              src="/public/coder.jpg" 
+              src="/coder.jpg" 
               alt="House" 
               className="w-full h-full object-cover" 
             />
