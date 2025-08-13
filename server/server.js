@@ -16,7 +16,9 @@ const Port = process.env.PORT || 8000
 
 connectDB();
 
-const allowedOrigins = [process.env.FRONTEND_PORT];
+const allowedOrigins = [process.env.FRONTEND_PORT,
+    process.env.LOCAL_PORT,
+];
 
 app.use(express.json()) ;
 app.use(cookieParser());
