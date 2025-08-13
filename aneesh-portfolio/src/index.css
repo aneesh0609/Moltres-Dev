@@ -1,6 +1,22 @@
 @import "tailwindcss";
 
 
+@font-face {
+  font-family: 'Stardom';
+  src: url('/fonts/Stardom-Regular.woff') format('woff'),
+       url('/fonts/Stardom-Regular') format('opentype');
+  font-weight: normal;
+  font-style:normal;
+  font-display: swap;
+}
+
+h1 {
+  font-family: 'Stardom', sans-serif;
+}
+
+
+
+
 .note {
 animation : bounce 3s infinite alternate ;
 }

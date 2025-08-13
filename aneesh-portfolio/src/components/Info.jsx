@@ -50,7 +50,9 @@ const GetInTouch = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-gray-900 to-black py-8">
         <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-center mb-2">Get in Touch</h1>
+          <h1 className="text-4xl md:text-5xl sm:text-5xl font-bold text-center mb-2 tracking-[2px]">Let’s Connect
+
+</h1>
           <p className="text-gray-300 text-center text-sm md:text-base">
             Let's connect and discuss opportunities
           </p>

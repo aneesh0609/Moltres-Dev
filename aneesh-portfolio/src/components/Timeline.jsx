@@ -104,7 +104,7 @@ export default function Timeline() {
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-tr from-black via-black to-gray-900 py-12 px-4 md:px-8">
       <div className="max-w-6xl mx-auto space-y-16">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400 mb-2">
+          <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400 mb-2 tracking-[2px]">
            Skills — Areas of Expertise
 
           </h1>

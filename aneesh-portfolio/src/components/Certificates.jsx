@@ -71,7 +71,7 @@ const TataCertificate = () => {
 
       <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] mx-auto px-2 sm:px-4 md:px-8 py-8 md:py-16 relative z-10 flex flex-col justify-center min-h-screen">
         <div className="text-center mb-8 md:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent tracking-[2px]">
             Professional Certification
           </h1>
           <p className="text-base sm:text-lg md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">

@@ -19,15 +19,24 @@ function Header({ scrollToProjects }) {
               src='/robot1.png' 
               className='w-32 h-24 ml-14 mb-6 cursor-pointer note'  
             />
-            <h1 className="text-4xl sm:text-5xl font-bold text-center lg:text-left ">
+            <h1 className="font-stardom text-5xl sm:text-5xl font-bold text-center lg:text-left tracking-[2px] mb-8 ">
               <motion.h2
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
               >
-                Hey, I'm Aneesh Chauhan 
+           Hey,
+
               </motion.h2>
+                 
             </h1>
+
+         <h1 className="font-stardom text-5xl sm:text-6xl font-bold text-center lg:text-left tracking-[2px] bg-gradient-to-r from-white via-gray-100 to-gray-900 bg-clip-text text-transparent">
+  I'm Aneesh Chauhan
+</h1>
+
+
+
             <p className="mt-4 text-lg py-4 sm:text-xl font-light text-center lg:text-left">
               I create impactful web experiences using React and Node.js.
               Let’s build something awesome together. ✨
