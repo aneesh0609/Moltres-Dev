@@ -30,7 +30,7 @@ export const sendMeMessage = async (req,res) => {
 export const getMessage =  async (req,res) => {
 
   try {
-    const messages = await textModel.find().sort({ createdAt: -1 }); // latest first
+    const messages = await textModel.find(); // latest first
     res.status(200).json(messages);
   } catch (error) {
     console.error("Error fetching messages:", error);

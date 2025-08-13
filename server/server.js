@@ -17,7 +17,8 @@ const Port = process.env.PORT || 8000
 connectDB();
 
 const allowedOrigins = [process.env.FRONTEND_URL,
-    process.env.LOCAL_PORT,
+    process.env.LOCAL_PORT, 
+    process.env.DASHBOARD_URL
 ];
 
 app.use(express.json()) ;
