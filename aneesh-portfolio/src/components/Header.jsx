@@ -11,7 +11,7 @@ function Header({ scrollToProjects }) {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white px-4 sm:px-8 md:px-12 py-4">
       <div className="">
         <main 
-          className="flex flex-col-reverse lg:flex-row justify-center items-center gap-8 min-h-[calc(100vh-7rem)]"
+          className="flex flex-col-reverse lg:flex-row justify-center items-center gap-16 min-h-[calc(100vh-7rem)]"
         >
           {/* Text Section */}
           <div className="w-full lg:w-1/2">
@@ -31,9 +31,9 @@ function Header({ scrollToProjects }) {
                  
             </h1>
 
-         <h1 className="font-stardom text-5xl sm:text-6xl font-bold text-center lg:text-left tracking-[2px] bg-gradient-to-r from-white via-gray-100 to-gray-900 bg-clip-text text-transparent">
-  I'm Aneesh Chauhan
-</h1>
+         <h1 className="font-stardom text-5xl sm:text-6xl md:text-5xl font-bold text-center lg:text-left tracking-[2px] bg-gradient-to-r from-white via-gray-100 to-gray-900 bg-clip-text text-transparent">
+                   I'm Aneesh Chauhan
+        </h1>
 
 
 
