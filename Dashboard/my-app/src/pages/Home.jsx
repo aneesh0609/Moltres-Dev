@@ -24,9 +24,9 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black p-4 sm:p-6">
+    <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black p-6 sm:p-6">
       <h1 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">
-        📩 Admin Dashboard
+        📩 Dashboard
       </h1>
 
       {loading ? (
