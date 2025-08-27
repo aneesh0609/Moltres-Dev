@@ -10,7 +10,7 @@ export const sendMeMessage = async (req,res) => {
     
     if(!name || !email || !text) 
     {
-      return res.json({success : false , message: "Missing fields"})
+      return res.status(400).json({success : false , message: "Missing fields"})
     }
 
     const message = await new textModel({name,email,text});
