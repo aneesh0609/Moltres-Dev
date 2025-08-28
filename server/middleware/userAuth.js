@@ -24,7 +24,7 @@ import jwt from 'jsonwebtoken';
       req.body.userId = tokenDecoded.id 
     }
     else{
-      return res.json({success: false , message: "user not Authenticated"})
+      return res.status(400).json({success: false , message: "user not Authenticated"})
     }
 
     next();
