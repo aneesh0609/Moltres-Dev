@@ -10,7 +10,7 @@ import jwt from 'jsonwebtoken';
   
     if(!token)
     {
-      return res.json({success: false , message: "Not Authenticated Please login "})
+      return res.status(400).json({success: false , message: "Not Authenticated Please login "})
     }
 
     const tokenDecoded = jwt.verify(token, process.env.JWT_SECRET);
