@@ -27,7 +27,7 @@ function Home() {
       )}
 
       {/* 🔹 Add padding-top so header content doesn’t hide under navbar */}
-      <div className="pt-24">
+      <div className="pt-16">
         <Header
           scrollToProjects={() =>
             projectsRef.current?.scrollIntoView({ behavior: 'smooth' })
