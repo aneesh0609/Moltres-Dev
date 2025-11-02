@@ -3,7 +3,7 @@ import { User } from 'lucide-react';
 
 const CircleMenu = () => {
   return (
-    <div className="relative w-64 h-64 mx-auto my-10 px-4 sm:px-0 max-w-xs sm:max-w-none">
+    <div className="relative w-64 h-64 mx-auto my-10 px-6 sm:px-0 max-w-xs sm:max-w-none">
       <style>
         {`
           @keyframes float {
