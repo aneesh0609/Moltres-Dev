@@ -26,7 +26,7 @@ const CircleMenu = () => {
       {/* Center User Icon */}
       <div className="absolute w-32 h-32 rounded-full bg-white flex items-center justify-center left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] overflow-hidden">
   <img
-    src="/me.jpeg"
+    src="/hero.png"
     className="w-full h-full object-cover rounded-full"
     alt="Coder"
   />
