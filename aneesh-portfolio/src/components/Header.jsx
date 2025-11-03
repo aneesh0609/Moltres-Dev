@@ -37,7 +37,7 @@ function Header({ scrollToProjects }) {
           </p>
 
           {/* ✅ Buttons Section */}
-          <div className="w-full flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-5 mt-8 sm:mt-6">
+          <div className="w-full flex flex-row sm:flex-row justify-center lg:justify-start gap-3 sm:gap-5 mt-8 sm:mt-6">
             {/* View My Work Button */}
             <button
               onClick={scrollToProjects}
