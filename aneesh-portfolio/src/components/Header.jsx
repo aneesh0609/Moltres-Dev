@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import React from 'react'
+import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion';
 
 function Header({ scrollToProjects }) {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white text-gray-900 px-4 sm:px-8 md:px-12 pb-4 sm:py-2">
-    
-
       <main className="flex flex-col-reverse lg:flex-row justify-center items-center gap-10 sm:gap-16 min-h-[calc(100vh-7rem)]">
         {/* Text Section */}
         <div className="w-full lg:w-1/2">
@@ -39,17 +36,31 @@ function Header({ scrollToProjects }) {
             Let’s build something awesome together. ✨
           </p>
 
-          <div className="w-full flex justify-center lg:justify-start">
+          {/* ✅ Buttons Section */}
+          <div className="w-full flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-5 mt-8 sm:mt-6">
+            {/* View My Work Button */}
             <button
               onClick={scrollToProjects}
               className="px-4 py-1 text-sm sm:px-8 sm:py-2 sm:text-base 
-                         bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 
-                         text-white rounded-full font-semibold border
+                         bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 
+                         text-white rounded-full font-semibold border border-gray-800
                          hover:bg-blue-700 transition-all duration-300 transform 
-                         hover:scale-105 hover:shadow-lg sm:mt-6 mt-8 shadow-indigo-500/20"
+                         hover:scale-105 hover:shadow-lg shadow-indigo-500/20"
             >
-              view my work
+              View My Work
             </button>
+
+            {/* ✅ Direct Download My CV Button */}
+            <a
+              href={`/ANEESH__CHAUHAN_RESUME.pdf`} // CV file in 'public' folder
+              download="ANEESH__CHAUHAN_RESUME.pdf"
+              className="px-4 py-1 text-sm sm:px-8 sm:py-2 sm:text-base 
+                         bg-white text-gray-900 rounded-full font-semibold border border-gray-800
+                         hover:bg-gray-100 transition-all duration-300 transform 
+                         hover:scale-105 hover:shadow-lg text-center"
+            >
+              Download My CV
+            </a>
           </div>
         </div>
 

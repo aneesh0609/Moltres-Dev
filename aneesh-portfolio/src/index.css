@@ -15,6 +15,45 @@ h1 {
 }
 
 
+.fonts{
+  font-family: 'Dancing Script', cursive;
+   /* font-family: 'Britney', cursive; */
+}
+.fontss{
+  /* font-family: 'Dancing Script', cursive; */
+   font-family: 'Britney', cursive;
+
+}
+
+
+ .star
+ {
+  font-family: 'Stardom', sans-serif;
+   
+ }
+
+
+ .star1
+ {
+font-family: 'Telma', cursive;
+ }
+
+
+.panchang{
+     font-family: 'Panchang', sans-serif;
+}
+
+.trench{
+   font-family: 'Trench Slab', sans-serif;
+}
+
+.normal{
+  font-family: 'Clash Grotesk', sans-serif;
+}
+
+
+
+
 
 
 .note {

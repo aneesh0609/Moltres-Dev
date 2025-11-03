@@ -1,11 +1,9 @@
 import React, { useRef, useState } from 'react';
 import CurvyNavbar from '../components/Navbar';
 import Header from '../components/Header';
-import SkillsTimeline from '../components/Timeline';
 import PortfolioProjects from '../components/Projects';
-import TataCertificate from '../components/Certificates';
 import GetInTouch from '../components/Info';
-import { Menu, X } from 'lucide-react';
+import About from './About';
 
 function Home() {
   const projectsRef = useRef(null);
@@ -14,10 +12,9 @@ function Home() {
   return (
     <div className="relative min-h-screen bg-white text-gray-900">
       {/* 🔹 Fixed Navbar visible on all scroll */}
-      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:block">
+      <div className="fixed  left-1/2 -translate-x-1/2 z-50 hidden md:block">
         <CurvyNavbar />
       </div>
-
 
       {/* 🔹 Mobile Navbar (Slide-in) */}
       {isMenuOpen && (
@@ -26,19 +23,32 @@ function Home() {
         </div>
       )}
 
-      {/* 🔹 Add padding-top so header content doesn’t hide under navbar */}
-      <div className="pt-16">
-        <Header
-          scrollToProjects={() =>
-            projectsRef.current?.scrollIntoView({ behavior: 'smooth' })
-          }
-        />
-        <SkillsTimeline />
-        <div ref={projectsRef}>
+      <div className="pt-12">
+        
+        {/* 🏠 Home Section */}
+        <section id="home">
+          <Header
+            scrollToProjects={() =>
+              projectsRef.current?.scrollIntoView({ behavior: 'smooth' })
+            }
+          />
+        </section>
+
+        {/* 👤 About Section */}
+        <section id="about">
+          <About />
+        </section>
+
+        {/* 💼 Projects Section */}
+        <section id="projects" ref={projectsRef}>
           <PortfolioProjects />
-        </div>
-        <TataCertificate />
-        <GetInTouch />
+        </section>
+
+        {/* 📩 Contact Section */}
+        <section id="contact">
+          <GetInTouch />
+        </section>
+
       </div>
     </div>
   );
