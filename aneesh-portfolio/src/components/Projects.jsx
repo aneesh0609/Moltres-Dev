@@ -16,7 +16,7 @@ const projectsData = [
     id: 2,
     title: "Culture's",
     icon: "🐾",
-    image: "/eco.png",
+    image: "/eco.PNG",
     description:
       "A clothing brand crafted to bring comfort, style, and culture into everyday fashion",
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
