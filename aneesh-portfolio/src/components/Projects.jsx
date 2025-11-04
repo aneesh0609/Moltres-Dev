@@ -5,7 +5,7 @@ const projectsData = [
     id: 1,
     title: "Paws-World",
     icon: "🐾",
-    image: "/paws-world.jpg",
+    image: "/card1.PNG",
     description:
       "A web app for pet care, adoption, and animal welfare — built to make a difference.",
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
@@ -27,7 +27,7 @@ const projectsData = [
     id: 3,
     title: "Code-Mew",
     icon: "💻",
-    image: "/hero.png",
+    image: "/Capture.PNG",
     description:
       "A tech blog for developers to explore, share, and learn the latest in web development.",
     technologies: ["React.js", "Node.js", "MongoDB",  "Firebase"],
