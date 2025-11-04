@@ -10,18 +10,18 @@ const projectsData = [
       "A web app for pet care, adoption, and animal welfare — built to make a difference.",
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
     link: "https://paws-world-moltres.netlify.app/",
-    github: "https://github.com/aneeshchauhan/paws-world",
+    github: "",
   },
     {
     id: 2,
-    title: "Paws-World",
+    title: "Culture's",
     icon: "🐾",
-    image: "/paws-world.jpg",
+    image: "/eco.png",
     description:
-      "A web app for pet care, adoption, and animal welfare — built to make a difference.",
+      "A clothing brand crafted to bring comfort, style, and culture into everyday fashion",
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
     link: "https://paws-world-moltres.netlify.app/",
-    github: "https://github.com/aneeshchauhan/paws-world",
+    github: "",
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const projectsData = [
       "A tech blog for developers to explore, share, and learn the latest in web development.",
     technologies: ["React.js", "Node.js", "MongoDB",  "Firebase"],
     link: "https://codemew.onrender.com/",
-    github: "https://github.com/aneeshchauhan/code-mew",
+    github: "",
   },
 ];
 
