@@ -15,7 +15,7 @@ const projectsData = [
     {
     id: 2,
     title: "Culture's",
-    icon: "🐾",
+    icon: "🛒",
     image: "/eco.PNG",
     description:
       "A clothing brand crafted to bring comfort, style, and culture into everyday fashion",
