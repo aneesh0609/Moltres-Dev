@@ -20,7 +20,7 @@ const projectsData = [
     description:
       "A clothing brand crafted to bring comfort, style, and culture into everyday fashion",
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
-    link: "https://paws-world-moltres.netlify.app/",
+    link: "https://cultures-frontend.vercel.app/",
     github: "",
   },
   {
